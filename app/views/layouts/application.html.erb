@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Logo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
+  </head>
+
+  <body>
+    <div>
+      <%# <h1 style="background-color: orange;">Header</h1><br> %>
+      <h1>Deshbord</h1>
+      <% if model_signed_in? %>
+        <%= link_to "sign out", destroy_model_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "sign up", new_model_registration_path %>
+        <%= link_to "sign in", new_model_session_path %>
+      <% end %>
+    <div>
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
