@@ -23,4 +23,11 @@ services:
         sync: false
         ipAllowList: []
         plan: free
-        maxmemorypolicy: noeviction  
+        maxmemorypolicy: noeviction 
+    envVarGroups:
+      - name: staging
+        envVars:
+         - key: ELIXIR_VERSION
+           value: 1.11.4
+         - key: MAILGUN_API_KEY
+           sync: false  
