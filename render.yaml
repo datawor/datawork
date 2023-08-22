@@ -3,7 +3,7 @@ databases:
     ipAllowList: []
     databaseName: datawork
     user: datawork
-
+    
 services:
   - type: web
     name: rails
@@ -18,16 +18,16 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-      - type: redis
-        name: redis
+  - type: redis
+    name: redis
+    sync: false
+    ipAllowList: []
+    plan: free
+    maxmemorypolicy: noeviction
+envVarGroups:
+  - name: staging
+    envVars:
+      - key: ELIXIR_VERSION
+        value: 1.11.4
+      - key: MAILGUN_API_KEY
         sync: false
-        ipAllowList: []
-        plan: free
-        maxmemorypolicy: noeviction 
-    envVarGroups:
-      - name: staging
-        envVars:
-         - key: ELIXIR_VERSION
-           value: 1.11.4
-         - key: MAILGUN_API_KEY
-           sync: false  
