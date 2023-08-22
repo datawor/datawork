@@ -7,9 +7,9 @@ databases:
 services:
   - type: web
     name: rails
-    env: ruby
-    runtime: 
     plan: free
+    env: ruby
+    runtime:
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
