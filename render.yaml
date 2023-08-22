@@ -7,9 +7,8 @@ databases:
 services:
   - type: web
     name: rails
-    plan: free
     env: ruby
-    runtime:
+    runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
@@ -23,6 +22,7 @@ services:
     name: redis
     ipAllowList: []
     plan: free
+    maxmemorypolicy: noeviction
 envVarGroups:
   - name: staging
     envVars:
