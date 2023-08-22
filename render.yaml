@@ -22,7 +22,7 @@ services:
     name: redis
     ipAllowList: []
     plan: free
-    Maxmemory Policy: noeviction
+    
 envVarGroups:
   - name: staging
     envVars:
