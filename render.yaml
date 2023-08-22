@@ -1,32 +1,19 @@
 databases:
-  - name: postgres
-    ipAllowList: []
+  - name: posrgres
     databaseName: datawork
     user: datawork
 
 services:
   - type: web
-    name: rails
-    env: ruby
+    name: datawork
+    plan: free
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: posrgres
           property: connectionString
       - key: RAILS_MASTER_KEY
-        sync: false
-  - type: redis
-    name: redis
-    ipAllowList: []
-    plan: free
-    maxmemorypolicy: noeviction
-envVarGroups:
-  - name: staging
-    envVars:
-      - key: ELIXIR_VERSION
-        value: 1.11.4
-      - key: MAILGUN_API_KEY
         sync: false
