@@ -3,7 +3,7 @@ databases:
     ipAllowList: []
     databaseName: datawork
     user: datawork
-    
+
 services:
   - type: web
     name: rails
@@ -20,10 +20,9 @@ services:
         sync: false
   - type: redis
     name: redis
-    sync: false
     ipAllowList: []
     plan: free
-    maxmemorypolicy: noeviction
+    Maxmemory Policy: noeviction
 envVarGroups:
   - name: staging
     envVars:
