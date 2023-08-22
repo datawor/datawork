@@ -2,7 +2,7 @@ databases:
   - name: postgres
     ipAllowList: []
     databaseName: datawork
-    user: postgres
+    user: datawork
 
 services:
   - type: web
@@ -20,6 +20,7 @@ services:
         sync: false
       - type: redis
         name: redis
+        sync: false
         ipAllowList: []
         plan: free
         maxmemorypolicy: noeviction  
